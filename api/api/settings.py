@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'preflow.app.PreflowConfig'
+    'preflowcore.apps.PreflowcoreConfig'
 ]
 
 MIDDLEWARE = [
@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'api.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'preflowdb',
+        'USER': 'preflowadmin',
+        'PASSWORD': 'prefl0wlax',
+        'HOST': '127.0.0.1',
+        'PORT': '5432'
     }
 }
 

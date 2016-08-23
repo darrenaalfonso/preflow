@@ -1,5 +1,5 @@
+from api.preflowcore.model.restroom import Restroom
 from rest_framework import serializers
-from ..model.restroom import Restroom
 
 
 class RestroomSerializer(serializers.HyperlinkedModelSerializer):

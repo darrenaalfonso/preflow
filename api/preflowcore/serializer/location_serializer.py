@@ -1,5 +1,5 @@
+from api.preflowcore.model.location import Location
 from rest_framework import serializers
-from ..model.location import Location
 
 
 class LocationSerializer(serializers.HyperlinkedModelSerializer):

@@ -1,13 +1,12 @@
+from ..model.location import Location
 from django.db import models
-from .location import Location
 
-
-SEX_CHOICES = ['male', 'female', 'none', 'other']
-TOWEL_DISPENSER_TYPE_CHOICES = ['lever', 'automatic', 'pull', 'other', 'none']
-HAND_DRYER_TYPE_CHOICES = ['button', 'automatic', 'none', 'other']
-HAND_SOAP_DISPENSER_TYPE_CHOICES = ['automatic', 'bar', 'pump', 'none', 'other']
-FLUSH_TYPE_CHOICES = ['automatic', 'manual', 'dual', 'none', 'other']
-TOILET_PAPER_DISPENSER_TYPE_CHOICES = ['perpendicular', 'parallel', 'other']
+SEX_CHOICES = [(1, 'Male'), (2, 'Female'), (3, 'No Distinction'), (4, 'Other')]
+TOWEL_DISPENSER_TYPE_CHOICES = [(1, 'Manual'), (2, 'Automatic'), (3, 'Other'), (4, 'None')]
+HAND_DRYER_TYPE_CHOICES = [(1, 'Button'), (2, 'Sensor'), (3, 'None'), (4, 'Other')]
+HAND_SOAP_DISPENSER_TYPE_CHOICES = [(1, 'Automatic'), (2, 'Manual'), (3, 'Bar'), (4, 'None'), (5, 'Other')]
+FLUSH_TYPE_CHOICES = [(1, 'Automatic'), (2, 'Manual'), (3, 'Water Saving'), (4, 'None'), (5, 'Other')]
+TOILET_PAPER_DISPENSER_TYPE_CHOICES = [(1, 'Perpendicular'), (2, 'Parallel'), (3, 'Other')]
 
 
 class Restroom(models.Model):
@@ -26,4 +25,3 @@ class Restroom(models.Model):
     toilet_paper_dispenser_type = models.CharField(choices=TOILET_PAPER_DISPENSER_TYPE_CHOICES, max_length=100)
     toilet_seat_covers = models.BooleanField
     row_stamp = models.DateField(auto_now_add=True)
-

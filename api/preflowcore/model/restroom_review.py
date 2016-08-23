@@ -1,8 +1,8 @@
-from django.db import models
-from django.core.validators import MinValueValidator, MaxValueValidator
-from .location import Location
-from .restroom import Restroom
+from ..model.location import Location
+from ..model.restroom import Restroom
 from django.contrib.auth.models import User
+from django.core.validators import MinValueValidator, MaxValueValidator
+from django.db import models
 
 
 class RestroomReview(models.Model):
