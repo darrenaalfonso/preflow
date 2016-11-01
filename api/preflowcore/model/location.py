@@ -8,7 +8,7 @@ class Location(models.Model):
     name = models.CharField(max_length=100, db_index=True)
     street_number = models.CharField(max_length=10)
     street_name = models.TextField(db_index=True)
-    unit_number = models.CharField(max_length=10)
+    unit_number = models.CharField(max_length=10, blank=True)
     city = models.CharField(max_length=20, db_index=True)
     state = models.CharField(max_length=20)
     country_code = models.CharField(max_length=2)
