@@ -14,14 +14,15 @@ class Restroom(models.Model):
     latitude = models.TextField(db_index=True)
     longitude = models.TextField(db_index=True)
     location = models.ForeignKey(Location, related_name='restrooms')
-    floor = models.IntegerField
-    is_single_occupancy = models.BooleanField
-    stalls = models.IntegerField
-    sex = models.CharField(choices=SEX_CHOICES, max_length=100)
-    towel_dispenser_type = models.CharField(choices=TOWEL_DISPENSER_TYPE_CHOICES, max_length=100)
-    hand_dryer_type = models.CharField(choices=HAND_DRYER_TYPE_CHOICES, max_length=100)
-    hand_soap_dispenser_type = models.CharField(choices=HAND_SOAP_DISPENSER_TYPE_CHOICES, max_length=100)
-    flush_type = models.CharField(choices=FLUSH_TYPE_CHOICES, max_length=100)
-    toilet_paper_dispenser_type = models.CharField(choices=TOILET_PAPER_DISPENSER_TYPE_CHOICES, max_length=100)
-    toilet_seat_covers = models.BooleanField
-    row_stamp = models.DateField(auto_now_add=True)
+    floor = models.IntegerField(blank=True, default=1)
+    is_single_occupancy = models.NullBooleanField(blank=True, null=True)
+    stalls = models.IntegerField(blank=True, null=True)
+    sex = models.CharField(choices=SEX_CHOICES, max_length=100, blank=True)
+    towel_dispenser_type = models.CharField(choices=TOWEL_DISPENSER_TYPE_CHOICES, max_length=100, blank=True)
+    hand_dryer_type = models.CharField(choices=HAND_DRYER_TYPE_CHOICES, max_length=100, blank=True)
+    hand_soap_dispenser_type = models.CharField(choices=HAND_SOAP_DISPENSER_TYPE_CHOICES, max_length=100, blank=True)
+    flush_type = models.CharField(choices=FLUSH_TYPE_CHOICES, max_length=100, blank=True)
+    toilet_paper_dispenser_type = models.CharField(choices=TOILET_PAPER_DISPENSER_TYPE_CHOICES, max_length=100,
+                                                   blank=True)
+    toilet_seat_covers = models.BooleanField(blank=True)
+    row_stamp = models.DateField(auto_now_add=True, blank=True)
